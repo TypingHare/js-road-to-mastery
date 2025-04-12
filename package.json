@@ -1,0 +1,29 @@
+{
+  "name": "js-road-to-mastery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "prepare": "node src/script.js prepare",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@10.7.1",
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 4,
+    "semi": false,
+    "singleQuote": true,
+    "endOfLine": "lf",
+    "printWidth": 80
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1"
+  }
+}
