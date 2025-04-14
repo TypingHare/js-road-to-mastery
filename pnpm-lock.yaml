@@ -11,6 +11,9 @@ importers:
       chalk:
         specifier: ^5.4.1
         version: 5.4.1
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
     devDependencies:
       prettier:
         specifier: ^3.5.3
@@ -22,6 +25,9 @@ packages:
     resolution: {integrity: sha512-zgVZuo2WcZgfUEmsn6eO3kINexW8RAE4maiQ8QNs8CtpPCSyMiYsULR3HQYkm3w8FIA3SberyMJMSldGsW+U3w==}
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
 
+  lodash@4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+
   prettier@3.5.3:
     resolution: {integrity: sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==}
     engines: {node: '>=14'}
@@ -30,5 +36,7 @@ packages:
 snapshots:
 
   chalk@5.4.1: {}
+
+  lodash@4.17.21: {}
 
   prettier@3.5.3: {}

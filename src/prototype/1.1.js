@@ -44,6 +44,7 @@ each(function (animal) {
  */
 export function findFirst(predicate, list) {
     /* Task 2: Implement this function */
+    return null
 }
 
 // The following statement should print:
@@ -70,6 +71,7 @@ console.log(fastAnimal)
  */
 export function filter(predicate, list) {
     /* Task 3: Implement this function */
+    return []
 }
 
 // The following statement should print:
@@ -89,6 +91,7 @@ console.log(fastAnimals.join(', '))
  */
 export function map(fn, list) {
     /* Task 4: Implement this function */
+    return []
 }
 
 /**
@@ -108,4 +111,4 @@ function getDescription(animal) {
 //     A tortoise can run as fast as 0.62 mph.
 //     A deer can run as fast as 40 mph.
 //
-map(getDescription, animals).forEach(console.log)
+map(getDescription, animals).forEach((x) => console.log(x))

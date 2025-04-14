@@ -10,8 +10,8 @@ const sections = [
 ]
 
 const eachTestSuite = {
-    name: '`each`',
-    points: 5.0,
+    name: 'each',
+    points: 25.0,
     cases: [
         expectEqual(() => {
             let totalStudents = 0
@@ -29,8 +29,8 @@ const eachTestSuite = {
 }
 
 const findFirstTestSuite = {
-    name: '`findFirst`',
-    points: 5.0,
+    name: 'findFirst',
+    points: 25.0,
     cases: [
         expectEqual(
             () => findFirst((s) => s.professor === 'Wilkes', sections)?.id,
@@ -50,8 +50,8 @@ const findFirstTestSuite = {
 }
 
 const filterTestSuite = {
-    name: '`filter`',
-    points: 5.0,
+    name: 'filter',
+    points: 25.0,
     cases: [
         expectSameList(() => {
             const filtered = filter((s) => s.professor === 'Wilkes', sections)
@@ -71,8 +71,8 @@ const filterTestSuite = {
 }
 
 const mapTestSuite = {
-    name: '`map`',
-    points: 5.0,
+    name: 'map',
+    points: 25.0,
     cases: [
         expectSameList(
             () => map((s) => s.id, sections),

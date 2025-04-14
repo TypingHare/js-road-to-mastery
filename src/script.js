@@ -1,16 +1,24 @@
 import * as fs from 'node:fs'
 import chalk from 'chalk'
 import { spawn } from 'child_process'
+import * as path from 'node:path'
 
 const [, , command, ...args] = process.argv
-const commands = { prepare, grade }
+const commands = { exercises, prepare, grade }
 const fn = commands[command]
 
-fn ? fn(args) : error(`Unknown command ${command}`)
+fn ? fn(...args) : error(`Unknown command ${command}`)
 
 function error(message) {
     console.log(chalk.red(message))
     process.exit(1)
+}
+
+function exercises() {
+    const files = fs.readdirSync('src/prototype')
+    files.forEach((file) => {
+        console.log(chalk.cyan(path.parse(file).name))
+    })
 }
 
 function prepare(name) {
@@ -28,8 +36,16 @@ function prepare(name) {
 }
 
 function grade(name) {
+    if (!name) {
+        error('Usage: grade <name>')
+    }
+
     const filename = `${name}.js`
     const graderFile = `src/grader/${filename}`
+
+    if (!fs.existsSync(graderFile)) {
+        error(`No such answer sheet: ${graderFile}`)
+    }
 
     spawn('node', [graderFile], { stdio: 'inherit' })
 }

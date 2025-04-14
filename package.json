@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "prepare": "node src/script.js prepare",
-    "grade": "node src/script.js grade"
+    "grade": "node src/script.js grade",
+    "exercises": "node src/script.js exercises"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +25,7 @@
     "prettier": "^3.5.3"
   },
   "dependencies": {
-    "chalk": "^5.4.1"
+    "chalk": "^5.4.1",
+    "lodash": "^4.17.21"
   }
 }
