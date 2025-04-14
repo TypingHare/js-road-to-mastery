@@ -1,5 +1,6 @@
 import * as fs from 'node:fs'
 import chalk from 'chalk'
+import { spawn } from 'child_process'
 
 const [, , command, ...args] = process.argv
 const commands = { prepare, grade }
@@ -13,8 +14,12 @@ function error(message) {
 }
 
 function prepare(name) {
+    if (!name) {
+        error('Usage: prepare <name>')
+    }
+
     const filename = `${name}.js`
-    const srcPath = `src/practice/${name}.js`
+    const srcPath = `src/prototype/${name}.js`
     if (!fs.existsSync(srcPath)) {
         error(`No such practice: ${srcPath}`)
     }
@@ -22,4 +27,9 @@ function prepare(name) {
     fs.copyFileSync(srcPath, `src/answer/${filename}`)
 }
 
-function grade(name) {}
+function grade(name) {
+    const filename = `${name}.js`
+    const graderFile = `src/grader/${filename}`
+
+    spawn('node', [graderFile], { stdio: 'inherit' })
+}

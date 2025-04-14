@@ -1,6 +1,6 @@
 // Higher Order Function (HOF)
 //
-// This practice set contains 4 tasks.
+// This prototype set contains 4 tasks.
 //
 // [NOTE] A higher order function is a function that either takes one or more
 // other functions as arguments, or returns a function as its result.
@@ -42,7 +42,7 @@ each(function (animal) {
  * @param list      A list of elements.
  * @return An element that meets the conditions; null otherwise.
  */
-export function find_first(predicate, list) {
+export function findFirst(predicate, list) {
     /* Task 2: Implement this function */
 }
 
@@ -50,15 +50,15 @@ export function find_first(predicate, list) {
 //
 //     tortoise
 //
-const slow_animal = find_first((animal) => animal.speed < 5, animals)
-console.log(slow_animal.name)
+const slowAnimal = findFirst((animal) => animal.speed < 5, animals)
+console.log(slowAnimal.name)
 
 // The following statements should print:
 //
 //     null
 //
-const fast_animal = find_first((animal) => animal.speed > 50, animals)
-console.log(fast_animal)
+const fastAnimal = findFirst((animal) => animal.speed > 50, animals)
+console.log(fastAnimal)
 
 /**
  * Traverses a list and finds all the elements that meets the conditions.
@@ -76,8 +76,8 @@ export function filter(predicate, list) {
 //
 //     cat, deer
 //
-const fast_animals = filter((animal) => animal.speed >= 30, animals)
-console.log(fast_animals.join(', '))
+const fastAnimals = filter((animal) => animal.speed >= 30, animals)
+console.log(fastAnimals.join(', '))
 
 /**
  * Maps elements in a list.
@@ -97,7 +97,7 @@ export function map(fn, list) {
  * @param animal The animal.
  * @returns {string} The description of the animal.
  */
-function get_description(animal) {
+function getDescription(animal) {
     return `A ${animal.name} can run as fast as ${animal.speed} mph.`
 }
 
@@ -108,4 +108,4 @@ function get_description(animal) {
 //     A tortoise can run as fast as 0.62 mph.
 //     A deer can run as fast as 40 mph.
 //
-map(get_description, animals).forEach(console.log)
+map(getDescription, animals).forEach(console.log)

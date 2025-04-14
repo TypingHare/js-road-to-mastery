@@ -1,6 +1,6 @@
 // Higher Order Function (HOF)
 //
-// This practice set contains 4 tasks.
+// This prototype set contains 4 tasks.
 //
 // [NOTE] A higher order function is a function that either takes one or more
 // other functions as arguments, or returns a function as its result.
@@ -20,7 +20,9 @@ const animals = [animal1, animal2, animal3, animal4]
  * @param list A list of elements.
  */
 export function each(fn, list) {
-    /* Task 1: Implements this function. */
+    for (const e of list) {
+        fn(e)
+    }
 }
 
 // The following statement should print:
@@ -42,23 +44,27 @@ each(function (animal) {
  * @param list      A list of elements.
  * @return An element that meets the conditions; null otherwise.
  */
-export function find_first(predicate, list) {
-    /* Task 2: Implement this function */
+export function findFirst(predicate, list) {
+    for (const e of list) {
+        if (predicate(e)) return e
+    }
+
+    return null
 }
 
 // The following statement should print:
 //
 //     tortoise
 //
-const slow_animal = find_first((animal) => animal.speed < 5, animals)
-console.log(slow_animal.name)
+const slowAnimal = findFirst((animal) => animal.speed < 5, animals)
+console.log(slowAnimal?.name)
 
 // The following statements should print:
 //
 //     null
 //
-const fast_animal = find_first((animal) => animal.speed > 50, animals)
-console.log(fast_animal)
+const fastAnimal = findFirst((animal) => animal.speed > 50, animals)
+console.log(fastAnimal)
 
 /**
  * Traverses a list and finds all the elements that meets the conditions.
@@ -66,18 +72,26 @@ console.log(fast_animal)
  * @param predicate A function that takes each element in the list, and returns
  *                  true if it meets some specific conditions; false otherwise.
  * @param list      A list of elements.
- * @return A list of elements that meet the conditions.
+ * @return {Array} A list of elements that meet the conditions.
  */
 export function filter(predicate, list) {
     /* Task 3: Implement this function */
+    const result = []
+    for (const e of list) {
+        if (predicate(e)) {
+            result.push(e)
+        }
+    }
+
+    return result
 }
 
 // The following statement should print:
 //
 //     cat, deer
 //
-const fast_animals = filter((animal) => animal.speed >= 30, animals)
-console.log(fast_animals.join(', '))
+const fastAnimals = filter((animal) => animal.speed >= 30, animals)
+console.log(fastAnimals.map((animal) => animal.name).join(', '))
 
 /**
  * Maps elements in a list.
@@ -89,6 +103,12 @@ console.log(fast_animals.join(', '))
  */
 export function map(fn, list) {
     /* Task 4: Implement this function */
+    const result = []
+    for (const e of list) {
+        result.push(fn(e))
+    }
+
+    return result
 }
 
 /**
@@ -97,7 +117,7 @@ export function map(fn, list) {
  * @param animal The animal.
  * @returns {string} The description of the animal.
  */
-function get_description(animal) {
+function getDescription(animal) {
     return `A ${animal.name} can run as fast as ${animal.speed} mph.`
 }
 
@@ -108,4 +128,4 @@ function get_description(animal) {
 //     A tortoise can run as fast as 0.62 mph.
 //     A deer can run as fast as 40 mph.
 //
-map(get_description, animals).forEach(console.log)
+map(getDescription, animals).forEach((it) => console.log(it))

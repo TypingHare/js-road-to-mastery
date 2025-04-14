@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "prepare": "node src/script.js prepare",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "grade": "node src/script.js grade"
   },
   "keywords": [],
   "author": "",
