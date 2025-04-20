@@ -30,6 +30,28 @@ export function lookup(store, key) {
 }
 
 /**
+ * An empty store that returns null no matter what key is given.
+ * @param _ {string} Any key.
+ * @returns {null}
+ */
+export const emptyStore = (_) => null
+
+/**
+ * Creates a store containing the given entries.
+ *
+ * TODO: Try to understand this function. How does it work?
+ *
+ * @param entries {Array[string, string]} Entries to save to the store.
+ * @returns {(string) => string|null} An store.
+ */
+export function createStore(entries) {
+    return entries.reduce(
+        (store, [key, value]) => save(store, key, value),
+        emptyStore
+    )
+}
+
+/**
  * @typedef {Object} Unit
  * @property {number} hp
  * @property {number} mana

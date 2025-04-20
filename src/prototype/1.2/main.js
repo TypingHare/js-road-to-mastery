@@ -8,9 +8,9 @@ import {
     abilityEffect,
     applyEffect,
     attackEffect,
+    createStore,
     lookup,
     prepareToGreet,
-    save,
 } from './callback.js'
 import _ from 'lodash'
 
@@ -18,12 +18,11 @@ import _ from 'lodash'
 const greetJames = prepareToGreet('James')
 greetJames()
 
-const emptyStore = (_) => null
-const store = [
+const store = createStore([
     ['bottle', 'water'],
     ['lunchbox', 'lunch'],
     ['bookcase', 'books'],
-].reduce((store, [key, value]) => save(store, key, value), emptyStore)
+])
 
 // This should print "lunch"
 console.log(lookup(store, 'lunchbox'))

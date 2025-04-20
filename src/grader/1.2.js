@@ -8,6 +8,8 @@ import {
     abilityEffect,
     applyEffect,
     attackEffect,
+    createStore,
+    emptyStore,
     lookup,
     prepareToGreet,
     save,
@@ -17,15 +19,6 @@ const prepareToGreetTestSuite = {
     name: 'prepare_to_greet',
     points: 10,
     cases: [expectEqual(() => typeof prepareToGreet('James'), 'function')],
-}
-
-const emptyStore = (_) => null
-
-function createStore(entries) {
-    return entries.reduce(
-        (store, [key, value]) => save(store, key, value),
-        emptyStore
-    )
 }
 
 const saveAndLookupTestSuite = {
