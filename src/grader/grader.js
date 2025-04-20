@@ -81,3 +81,21 @@ export function expectSameList(fn, expectedList) {
         return true
     }
 }
+
+/**
+ * Temporarily suppresses all console.log output while the given function is
+ * executed.
+ *
+ * @param {() => any} fn - The function to execute with console.log suppressed.
+ * @returns {any} The result of the executed function.
+ */
+export function suppressConsoleLogs(fn) {
+    const originalLog = console.log
+    console.log = () => {}
+
+    try {
+        return fn()
+    } finally {
+        console.log = originalLog
+    }
+}

@@ -5,7 +5,7 @@
 //
 // noinspection DuplicatedCode
 
-import { each, filter, findFirst, map } from './functions.js'
+import { each, filter, findFirst, map } from './hof.js'
 
 const animal1 = { name: 'cat', speed: '30' }
 const animal2 = { name: 'rabbit', speed: '25' }

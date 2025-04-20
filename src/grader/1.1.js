@@ -1,4 +1,4 @@
-import { each, filter, findFirst, map } from '../answer/1.1/functions.js'
+import { each, filter, findFirst, map } from '../answer/1.1/hof.js'
 import { expectEqual, expectSameList, grade } from './grader.js'
 
 const sections = [
