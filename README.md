@@ -32,7 +32,7 @@ For example, to prepare practice `1.1`, run:
 pnpm prepare 1.1
 ```
 
-This will create an answer sheet at `src/answer/1.1.js`, where you can complete the assigned tasks.
+This will create an answer sheet at `src/answer/main.js`, where you can complete the assigned tasks.
 
 ### Grade the Answer Sheet
 

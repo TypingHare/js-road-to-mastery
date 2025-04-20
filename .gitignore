@@ -9,4 +9,4 @@
 node_modules
 
 # answers
-src/answer/*.js
+src/answer/**/*.js

@@ -5,12 +5,16 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "prepare": "node src/script.js prepare",
-    "grade": "node src/script.js grade",
-    "exercises": "node src/script.js exercises"
+    "help": "node src/script.js help",
+    "exercises": "node src/script.js exercises",
+    "new": "node src/script.js new",
+    "try": "node src/script.js try",
+    "grade": "node src/script.js grade"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "JavaScript"
+  ],
+  "author": "James Chen",
   "license": "MIT",
   "packageManager": "pnpm@10.7.1",
   "prettier": {
@@ -26,6 +30,7 @@
   },
   "dependencies": {
     "chalk": "^5.4.1",
+    "fs-extra": "^11.3.0",
     "lodash": "^4.17.21"
   }
 }
