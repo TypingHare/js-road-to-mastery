@@ -1,3 +1,5 @@
+// noinspection DuplicatedCode
+
 /**
  * Prepares to greet.
  * @param name {string} The name of the person to greet.

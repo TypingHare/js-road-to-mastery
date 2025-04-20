@@ -1,6 +1,7 @@
 // Callback Function
 //
-// This exercise contains 4 tasks.
+// This exercise contains 6 tasks. Please implement all the functions in
+// `callback.js`.
 //
 // noinspection DuplicatedCode
 
