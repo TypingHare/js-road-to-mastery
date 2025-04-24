@@ -23,8 +23,6 @@ function error(message) {
  * Prints help information.
  */
 function help() {
-    const exercises_desc = ''
-
     const map = {
         exercises: 'Display all available exercises.',
         'new <name>': 'Set up an answer sheet.',

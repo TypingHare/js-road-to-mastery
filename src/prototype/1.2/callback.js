@@ -65,8 +65,9 @@ export function createStore(entries) {
  * Applies an effect on a unit. This is often seen in game development.
  *
  * After applying the effect:
- * 1. If the unit hp is less than zero, returns false; otherwise, returns true.
- * 2. If the unit's mana is a less than zero, set it to zero.
+ * 1. If the unit's hp is a less than zero, set it to zero.
+ * 1. If the unit's mana is a less than zero, set it to zero.
+ * 3. If the unit hp is less than zero, returns false; otherwise, returns true.
  *
  * @param unit {Unit} The unit that takes the effect.
  * @param effect {(Unit) => void }
