@@ -1,3 +1,5 @@
+// noinspection DuplicatedCode
+
 /**
  * An event source is a component that generates events. Examples include user
  * interfaces (web browsers), sensors, databases, and so on. Event sources
@@ -5,8 +7,6 @@
  *
  * For instance, in a web page, a button element can generate a "click" event,
  * allowing users to bind handlers to it.
- *
- * @abstract
  */
 export class EventSource {
     /**
@@ -14,6 +14,18 @@ export class EventSource {
      * @type {EventBus}
      */
     eventBus = new EventBus()
+
+    /**
+     * Binds a listener (handler) to an event of an event source.
+     *
+     * @param {string} eventName The name of the event to bind.
+     * @param {EventHandler} handler The function that is called when the event
+     *        is triggered.
+     */
+    addEventListener(eventName, handler) {
+        /* Task 2: Implement this function (Please implement task 1 first) */
+        this.eventBus.subscribe(eventName, handler)
+    }
 }
 
 /**
@@ -35,7 +47,9 @@ export class Event {
      *
      * @param name The name of this event.
      */
-    constructor(name) {}
+    constructor(name) {
+        this.name = name
+    }
 }
 
 export class ClickEvent extends Event {
@@ -49,18 +63,18 @@ export class ClickEvent extends Event {
 
 export class ChangeEvent extends Event {
     /**
-     * The text to change.
+     * The value to change.
      * @type {string}
      */
-    text
+    value
 
     /**
      * Creates an ChangeEvent instance.
-     * @param text {string} The text to change.
+     * @param {string} value The value to change.
      */
-    constructor(text) {
+    constructor(value) {
         super('change')
-        this.text = text
+        this.value = value
     }
 }
 
@@ -87,8 +101,8 @@ export class EventBus {
      * Subscribes a callback function to an event. The callback will be invoked
      * whenever the event is published.
      *
-     * @param eventName {string} The name of the event to bind.
-     * @param handler {EventHandler} The function that is called when the event
+     * @param {string} eventName The name of the event to bind.
+     * @param {EventHandler} handler The function that is called when the event
      *        is triggered.
      */
     subscribe(eventName, handler) {
@@ -102,9 +116,10 @@ export class EventBus {
     /**
      * Unsubscribes a previously subscribed callback from an event.
      *
-     * @param eventName {string} The name of the event to bind.
-     * @param handler {EventHandler} The handler to unbind from the event.
+     * @param {string} eventName The name of the event to bind.
+     * @param {EventHandler} handler The handler to unbind from the event.
      */
+    // noinspection JSUnusedGlobalSymbols
     unsubscribe(eventName, handler) {
         if (this.#eventHandlersMap.has(eventName)) {
             this.#eventHandlersMap.get(eventName).delete(handler)
@@ -117,7 +132,7 @@ export class EventBus {
      * This method trigger all the handlers (callbacks) that are bound to the
      * name in the event (object).
      *
-     * @param event {Event} The event to publish.
+     * @param {Event} event The event to publish.
      */
     publish(event) {
         /* Task 1: Implement this function */
@@ -129,26 +144,14 @@ export class EventBus {
 }
 
 /**
- * Binds a listener (handler) to an event of an event source.
- *
- * @param eventSource {EventSource} The event source.
- * @param eventName {string} The name of the event to bind.
- * @param handler {EventHandler} The function that is called when the event
- *        is triggered.
- */
-export function addEventListener(eventSource, eventName, handler) {
-    /* Task 2: Implement this function */
-    eventSource.eventBus.subscribe(eventName, handler)
-}
-
-/**
  * Represents an event emitter that can emit different types of UI events.
  */
 export class EventEmitter {
     /**
      * Emits a click event using the provided event source.
      *
-     * @param {EventSource} eventSource - The source through which the event is emitted.
+     * @param {EventSource} eventSource - The source through which the event is
+     *        emitted.
      */
     emitClickEvent(eventSource) {
         eventSource.eventBus.publish(new ClickEvent())
@@ -157,10 +160,12 @@ export class EventEmitter {
     /**
      * Emits a change event with the given text using the provided event source.
      *
-     * @param {EventSource} eventSource - The source through which the event is emitted.
-     * @param {string} text - The text to include in the change event.
+     * @param {EventSource} eventSource - The source through which the event is
+     *        emitted.
+     * @param {string} value - The value to include in the change event.
      */
-    emitChangeEvent(eventSource, text) {
-        eventSource.eventBus.publish(new ChangeEvent(text))
+    emitChangeEvent(eventSource, value) {
+        /* Task 3: Implement this function */
+        eventSource.eventBus.publish(new ChangeEvent(value))
     }
 }

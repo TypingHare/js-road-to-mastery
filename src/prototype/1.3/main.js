@@ -1,27 +1,30 @@
 // Event-driven Architecture (EDA)
 //
-// In this practice
-//
+// In this practice, you will be implementing an event-driven architecture that
+// is similiar to DOM, and we call it "DOM lite".
 //
 // @link https://www.geeksforgeeks.org/event-driven-architecture-system-design/
 // noinspection DuplicatedCode
 // noinspection SpellCheckingInspection
 
-import { Button, TextField } from './event-source.js'
-import { addEventListener, EventEmitter } from './eda.js'
 import _ from 'lodash'
+import { attachChangeListenerToTextField, document } from './impl.js'
+import { Button, TextField } from './dom.js'
 
-const document = {
-    eventEmitter: new EventEmitter(),
-    elements: new Map(),
-    getElementById: (id) => this.elements.get(id),
-}
-
-document.elements.set('input-username', new TextField())
-document.elements.set('input-password', new TextField())
-document.elements.set(
-    'button-login',
+// Add elements to the document
+document.elements.add(
+    _.tap(new TextField(), (it) => {
+        it.id = 'input-username'
+    })
+)
+document.elements.add(
+    _.tap(new TextField(), (it) => {
+        it.id = 'input-password'
+    })
+)
+document.elements.add(
     _.tap(new Button(), (it) => {
+        it.id = 'button-login'
         it.text = 'LOGIN'
     })
 )
@@ -30,6 +33,17 @@ const eInputUsername = document.getElementById('input-username')
 const eInputPassword = document.getElementById('input-password')
 const eButtonLogin = document.getElementById('button-login')
 
+/**
+ * Sends a login request to the server.
+ *
+ * This is a mock function. Since we don't have a real backend, this function
+ * returns true if and only if the username is "admin" and the password is
+ * "123456".
+ *
+ * @param {string} username The username associated with the account.
+ * @param {string} password The password associated with the account.
+ * @returns {boolean} true if both username and password match; false otherwise.
+ */
 function sendLoginRequestToServer(username, password) {
     console.log('Sending login request to the server.')
     console.log(`Username: ${username}`)
@@ -38,13 +52,9 @@ function sendLoginRequestToServer(username, password) {
     return username === 'admin' && password === '123456'
 }
 
-;[eInputUsername, eInputPassword].forEach(e => {
-    addEventListener(e, 'click', (event) => {
-        e.text = event.text
-    })
-})
+;[eInputUsername, eInputPassword].forEach(attachChangeListenerToTextField)
 
-addEventListener(eButtonLogin, 'click', () => {
+eButtonLogin.addEventListener('click', () => {
     const username = eInputUsername.value
     const password = eInputPassword.value
     const ret = sendLoginRequestToServer(username, password)
@@ -60,7 +70,7 @@ addEventListener(eButtonLogin, 'click', () => {
  * 2. Input password "123456"
  * 3. Click the login button
  *
- * We expect the following to be output in the console:
+ * We expect the following to be output on the terminal when it is called:
  *
  *     Sending login request to the server.
  *     Username: admin
