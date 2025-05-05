@@ -3,6 +3,9 @@
 // In this practice, you will be implementing an event-driven architecture that
 // is similiar to DOM, and we call it "DOM lite".
 //
+// You might think this architecture is somehow overkilled, but try to
+// explore it humbly and understand the advantages of this architecture.
+//
 // @link https://www.geeksforgeeks.org/event-driven-architecture-system-design/
 // noinspection DuplicatedCode
 // noinspection SpellCheckingInspection
@@ -13,14 +16,10 @@ import { Button, TextField } from './dom.js'
 
 // Add elements to the document
 document.elements.add(
-    _.tap(new TextField(), (it) => {
-        it.id = 'input-username'
-    })
+    _.tap(new TextField(), (it) => (it.id = 'input-username'))
 )
 document.elements.add(
-    _.tap(new TextField(), (it) => {
-        it.id = 'input-password'
-    })
+    _.tap(new TextField(), (it) => (it.id = 'input-password'))
 )
 document.elements.add(
     _.tap(new Button(), (it) => {
@@ -63,8 +62,7 @@ eButtonLogin.addEventListener('click', () => {
 })
 
 /**
- * This function simulates the process where the user does the following things
- * in order:
+ * Simulates the process where the user does the following things in order:
  *
  * 1. Input username "admin"
  * 2. Input password "123456"
@@ -78,7 +76,7 @@ eButtonLogin.addEventListener('click', () => {
  *     Login succeeded
  *
  */
-function simulate() {
+;(function () {
     document.eventEmitter.emitChangeEvent(eInputUsername, 'a')
     document.eventEmitter.emitChangeEvent(eInputUsername, 'ad')
     document.eventEmitter.emitChangeEvent(eInputUsername, 'adm')
@@ -93,6 +91,36 @@ function simulate() {
     document.eventEmitter.emitChangeEvent(eInputPassword, '123456')
 
     document.eventEmitter.emitClickEvent(eButtonLogin)
-}
+})()
 
-simulate()
+/**
+ * Simulates the process where the user does the following things in order:
+ *
+ * 1. Input username "admin"
+ * 2. Input password "123455"
+ * 3. Click the login button
+ *
+ * We expect the following to be output on the terminal when it is called:
+ *
+ *     Sending login request to the server.
+ *     Username: admin
+ *     Password: 123455
+ *     Login failed
+ *
+ */
+;(function () {
+    document.eventEmitter.emitChangeEvent(eInputUsername, 'a')
+    document.eventEmitter.emitChangeEvent(eInputUsername, 'ad')
+    document.eventEmitter.emitChangeEvent(eInputUsername, 'adm')
+    document.eventEmitter.emitChangeEvent(eInputUsername, 'admi')
+    document.eventEmitter.emitChangeEvent(eInputUsername, 'admin')
+
+    document.eventEmitter.emitChangeEvent(eInputPassword, '1')
+    document.eventEmitter.emitChangeEvent(eInputPassword, '12')
+    document.eventEmitter.emitChangeEvent(eInputPassword, '123')
+    document.eventEmitter.emitChangeEvent(eInputPassword, '1234')
+    document.eventEmitter.emitChangeEvent(eInputPassword, '12345')
+    document.eventEmitter.emitChangeEvent(eInputPassword, '123455')
+
+    document.eventEmitter.emitClickEvent(eButtonLogin)
+})()

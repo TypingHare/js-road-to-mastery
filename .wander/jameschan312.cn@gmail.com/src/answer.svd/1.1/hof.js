@@ -1,7 +1,10 @@
+// noinspection DuplicatedCode
+
 /**
  * Traverses a list and call the function with each element.
  *
- * @param fn   A function that takes each element in the list.
+ * @param fn   A function that takes each elem
+ * ent in the list.
  * @param list A list of elements.
  */
 export function each(fn, list) {

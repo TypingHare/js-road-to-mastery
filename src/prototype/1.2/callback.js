@@ -96,4 +96,3 @@ export function attackEffect(unit) {
 export function abilityEffect(unit) {
     /* Task 6: Implement this function */
 }
-

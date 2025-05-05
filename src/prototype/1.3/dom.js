@@ -2,6 +2,9 @@
 
 import { EventEmitter, EventSource } from './eda.js'
 
+/**
+ * Represents an HTML element.
+ */
 export class Element extends EventSource {
     /**
      * The ID of the element. In a DOM, the ID of any elements should be unique.
@@ -47,6 +50,9 @@ export class TextField extends Element {
     value
 }
 
+/**
+ * Represents a radio input.
+ */
 export class Radio extends Element {
     /**
      * The name attribute. Radio elements having the same name are considered

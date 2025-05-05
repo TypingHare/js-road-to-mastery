@@ -1,6 +1,10 @@
 // Higher Order Function (HOF)
 //
-// This exercise contains 4 tasks. Please implement all the functions in
+// In this exercise, you will learn some common ways where HOFs are used in
+// JavaScript. After the exercise, you should be comfortable with some common
+// functions such as `Array.prototype.forEach` and `Array.prototype.map`.
+//
+// This exercise contains 5 tasks. Please implement all the functions in
 // `hof.js`.
 //
 // noinspection DuplicatedCode

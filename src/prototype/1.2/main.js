@@ -1,5 +1,12 @@
 // Callback Function
 //
+// In this exercise, you will learn what are callback functions and some
+// advanced ways to use them.
+//
+// The first two tasks will give you some insights about how nested callback
+// functions work. The three following tasks give you a peek on how callback
+// functions are leveraged in game development.
+//
 // This exercise contains 5 tasks. Please implement all the functions in
 // `callback.js`.
 //
@@ -11,7 +18,6 @@ import {
     attackEffect,
     createStore,
     lookup,
-    prepareToGreet,
 } from './callback.js'
 import _ from 'lodash'
 
