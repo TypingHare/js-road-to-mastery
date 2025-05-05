@@ -63,3 +63,15 @@ export function map(fn, list) {
 
     return result
 }
+
+/**
+ * Prepares to greet.
+ * @param name {string} The name of the person to greet.
+ * @return {() => void} A function that prints "Hi Alice. How are you?" if the
+ *         specified name is "Alice".
+ */
+export function prepareToGreet(name) {
+    return function () {
+        console.log(`Hi ${name}. How are you?`)
+    }
+}

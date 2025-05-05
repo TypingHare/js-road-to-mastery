@@ -1,11 +1,11 @@
 // Higher Order Function (HOF)
 //
-// This exercise contains 4 tasks. Please implement all the functions in
+// This exercise contains 5 tasks. Please implement all the functions in
 // `hof.js`.
 //
 // noinspection DuplicatedCode
 
-import { each, filter, findFirst, map } from './hof.js'
+import { each, filter, findFirst, map,prepareToGreet } from './hof.js'
 
 const animal1 = { name: 'cat', speed: '30' }
 const animal2 = { name: 'rabbit', speed: '25' }
@@ -63,3 +63,7 @@ function getDescription(animal) {
 //     A deer can run as fast as 40 mph.
 //
 map(getDescription, animals).forEach((x) => console.log(x))
+
+// This should print "Hi James. How are you?"
+const greetJames = prepareToGreet('James')
+greetJames()

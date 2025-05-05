@@ -1,5 +1,17 @@
-import { each, filter, findFirst, map } from '../answer/1.1/hof.js'
+import {
+    each,
+    filter,
+    findFirst,
+    map,
+    prepareToGreet,
+} from '../answer/1.1/hof.js'
 import { expectEqual, expectSameList, grade } from './grader.js'
+
+const prepareToGreetTestSuite = {
+    name: 'prepare_to_greet',
+    points: 10,
+    cases: [expectEqual(() => typeof prepareToGreet('James'), 'function')],
+}
 
 const sections = [
     { id: 'SEC201', professor: 'Wilkes', numStudents: 20 },
@@ -91,4 +103,10 @@ const mapTestSuite = {
     ],
 }
 
-grade(eachTestSuite, findFirstTestSuite, filterTestSuite, mapTestSuite)
+grade(
+    prepareToGreetTestSuite,
+    eachTestSuite,
+    findFirstTestSuite,
+    filterTestSuite,
+    mapTestSuite
+)

@@ -11,15 +11,8 @@ import {
     createStore,
     emptyStore,
     lookup,
-    prepareToGreet,
     save,
 } from '../answer/1.2/callback.js'
-
-const prepareToGreetTestSuite = {
-    name: 'prepare_to_greet',
-    points: 10,
-    cases: [expectEqual(() => typeof prepareToGreet('James'), 'function')],
-}
 
 const saveAndLookupTestSuite = {
     name: 'save and lookup',
@@ -128,4 +121,4 @@ const effectsTestSuite = {
     ],
 }
 
-grade(prepareToGreetTestSuite, saveAndLookupTestSuite, effectsTestSuite)
+grade(saveAndLookupTestSuite, effectsTestSuite)

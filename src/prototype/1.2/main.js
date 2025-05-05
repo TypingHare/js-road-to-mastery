@@ -1,6 +1,6 @@
 // Callback Function
 //
-// This exercise contains 6 tasks. Please implement all the functions in
+// This exercise contains 5 tasks. Please implement all the functions in
 // `callback.js`.
 //
 // noinspection DuplicatedCode
@@ -14,10 +14,6 @@ import {
     prepareToGreet,
 } from './callback.js'
 import _ from 'lodash'
-
-// This should print "Hi James. How are you?"
-const greetJames = prepareToGreet('James')
-greetJames()
 
 const store = createStore([
     ['bottle', 'water'],

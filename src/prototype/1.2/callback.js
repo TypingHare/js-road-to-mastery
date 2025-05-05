@@ -1,16 +1,6 @@
 // noinspection DuplicatedCode
 
 /**
- * Prepares to greet.
- * @param name {string} The name of the person to greet.
- * @return {() => void} A function that prints "Hi Alice. How are you?" if the
- *         specified name is "Alice".
- */
-export function prepareToGreet(name) {
-    /* Task 1: Implement this function. */
-}
-
-/**
  * Saves a key-value pair to the store.
  * @param store {(string) => string|null} A store function.
  * @param key {string} The key of the pair to save.
@@ -106,3 +96,4 @@ export function attackEffect(unit) {
 export function abilityEffect(unit) {
     /* Task 6: Implement this function */
 }
+

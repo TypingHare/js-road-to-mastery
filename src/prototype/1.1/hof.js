@@ -1,3 +1,5 @@
+// noinspection DuplicatedCode
+
 /**
  * Traverses a list and call the function with each element.
  *
@@ -45,4 +47,14 @@ export function filter(predicate, list) {
 export function map(fn, list) {
     /* Task 4: Implement this function */
     return []
+}
+
+/**
+ * Prepares to greet.
+ * @param name {string} The name of the person to greet.
+ * @return {() => void} A function that prints "Hi Alice. How are you?" if the
+ *         specified name is "Alice".
+ */
+export function prepareToGreet(name) {
+    /* Task 5: Implement this function. */
 }
