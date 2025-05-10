@@ -1,14 +1,18 @@
 # [JavaScript - Road to Mastery](https://github.com/TypingHare/js-road-to-mastery)
 
-## Install
+## About
 
-First, make sure [Node.js](https://nodejs.org/en) is installed on your machine. Then, install [pnpm](https://pnpm.io/installation) globally using the following command:
+
+
+## Installation
+
+First, make sure [Node.js](https://nodejs.org/en) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) is installed on your machine. Then, install [pnpm](https://pnpm.io/installation) globally using the following command:
 
 ```shell
 npm install -g pnpm
 ```
 
-Next, clone this repository and run the following command in the root directory:
+Next, fetch this repository and clone it to your machine. Run the following command in the root directory:
 
 ```shell
 pnpm install
@@ -22,6 +26,12 @@ pnpm exercises
 
 ## How to Use
 
+### Check All Exercises
+
+~~~sh
+$ pnpm exercises
+~~~
+
 ### Preparing an Answer Sheet
 
 Practice prototypes are located in the `src/prototype` directory. Do not edit these files. To begin working on a specific practice, generate a copy in the `src/answer` directory using the `prepare <name>` command.
@@ -29,7 +39,7 @@ Practice prototypes are located in the `src/prototype` directory. Do not edit th
 For example, to prepare practice `1.1`, run:
 
 ```shell
-pnpm prepare 1.1
+$ pnpm prepare 1.1
 ```
 
 This will create an answer sheet at `src/answer/main.js`, where you can complete the assigned tasks.
@@ -39,7 +49,7 @@ This will create an answer sheet at `src/answer/main.js`, where you can complete
 Once you've completed the exercise, you can grade your answer using the grade command. For example, to grade practice `1.1`, run:
 
 ```shell
-pnpm grade 1.1
+$ pnpm grade 1.1
 ```
 
 A grading report will be displayed in the console.
