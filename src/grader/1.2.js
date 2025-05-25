@@ -66,7 +66,7 @@ const manaBurnEffect = (unit) => {
 
 const effectsTestSuite = {
     name: 'effects',
-    points: 50,
+    points: 60,
     cases: [
         // applyEffect should apply an effect and clamp hp/mana at zero
         expectEqual(() => {

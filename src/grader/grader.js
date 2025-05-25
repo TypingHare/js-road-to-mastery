@@ -32,12 +32,24 @@ export function grade(...testSuites) {
         totalPoints += points
         totalScore += score
 
+        const roundedPoints = _.round(points, 2)
+        const roundedScore = _.round(score, 2)
+
         console.log(
-            chalkFn(`Tested \`${name}\` - ${score}/${points} (${dots})`)
+            chalkFn(
+                `Tested \`${name}\` - ${roundedScore}/${roundedPoints} (${dots})`
+            )
         )
     })
 
-    console.log(chalk.cyan.bold(`Total score: ${totalScore}/${totalScore}`))
+    const roundedTotalScore = _.round(totalScore, 2)
+    const roundedTotalPoints = _.round(totalPoints, 2)
+
+    console.log(
+        chalk.cyan.bold(
+            `Total score: ${roundedTotalScore}/${roundedTotalPoints}`
+        )
+    )
     console.log(chalk.yellow('='.repeat(80)))
 }
 

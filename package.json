@@ -16,7 +16,7 @@
   ],
   "author": "James Chen",
   "license": "MIT",
-  "packageManager": "pnpm@10.7.1",
+  "packageManager": "pnpm@10.11.0",
   "prettier": {
     "trailingComma": "es5",
     "tabWidth": 4,
