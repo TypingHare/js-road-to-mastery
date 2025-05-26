@@ -24,7 +24,6 @@ export class EventSource {
      */
     addEventListener(eventName, handler) {
         /* Task 2: Implement this function (Please implement task 1 first) */
-        this.eventBus.subscribe(eventName, handler)
     }
 }
 
@@ -136,10 +135,6 @@ export class EventBus {
      */
     publish(event) {
         /* Task 1: Implement this function */
-        const handlers = this.#eventHandlersMap.get(event.name) || []
-        for (const handler of handlers) {
-            handler(event)
-        }
     }
 }
 
@@ -166,6 +161,5 @@ export class EventEmitter {
      */
     emitChangeEvent(eventSource, value) {
         /* Task 3: Implement this function */
-        eventSource.eventBus.publish(new ChangeEvent(value))
     }
 }

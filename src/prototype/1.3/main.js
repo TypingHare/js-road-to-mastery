@@ -1,12 +1,22 @@
-// Event-driven Architecture (EDA)
+// Event-driven Architecture (EDA) [Estimate Time: 90 minutes]
 //
 // In this practice, you will be implementing an event-driven architecture that
-// is similiar to DOM, and we call it "DOM lite".
+// is similiar to DOM, and we would call it "DOM Lite".
 //
-// You might think this architecture is somehow overkilled, but try to
-// explore it humbly and understand the advantages of this architecture.
+// You might think this architecture is somehow overkilled, but just explore it
+// humbly and try to understand the advantages of this architecture.
 //
+// Please implement the tasks in `eda.js` and `impl.js`.
+//
+// Check out the following link for more details about EDA:
 // @link https://www.geeksforgeeks.org/event-driven-architecture-system-design/
+//
+// `_.tap` is a commonly used function in lodash, see:
+// @link https://lodash.com/docs/4.17.15#tap
+//
+// You may also want to use the `instanceof` keyword, see:
+// @link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof
+//
 // noinspection DuplicatedCode
 // noinspection SpellCheckingInspection
 
@@ -28,6 +38,7 @@ document.elements.add(
     })
 )
 
+// Get the element objects by their IDs
 const eInputUsername = document.getElementById('input-username')
 const eInputPassword = document.getElementById('input-password')
 const eButtonLogin = document.getElementById('button-login')

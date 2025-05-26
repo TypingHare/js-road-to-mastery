@@ -1,9 +1,13 @@
 // noinspection DuplicatedCode
 
-import { EventEmitter, EventSource } from './eda.js'
+import { ChangeEvent, ClickEvent, EventEmitter, EventSource } from './eda.js'
 
 /**
- * Represents an HTML element.
+ * Represents an HTML element. An element is an event source, which can generate
+ * events, such as "click" event and "change" event.
+ *
+ * @see ClickEvent
+ * @see ChangeEvent
  */
 export class Element extends EventSource {
     /**
@@ -15,7 +19,7 @@ export class Element extends EventSource {
 }
 
 /**
- * Represents a button. It can trigger the `click` event.
+ * Represents a button. It can trigger a `click` event in DOM Lite.
  */
 export class Button extends Element {
     /**
@@ -27,7 +31,7 @@ export class Button extends Element {
 }
 
 /**
- * Represents a label.
+ * Represents a label. It cannot tigger any events in DOM Lite.
  */
 export class Label extends Element {
     /**
@@ -39,7 +43,7 @@ export class Label extends Element {
 }
 
 /**
- * Represents a text field. It can trigger the `change` event.
+ * Represents a text field. It can trigger a `change` event in DOM Lite.
  */
 export class TextField extends Element {
     /**
@@ -79,7 +83,7 @@ export class Radio extends Element {
 }
 
 /**
- * Represents a DOM lite class.
+ * Represents a DOM Lite document.
  */
 export class Document {
     /**
@@ -89,15 +93,15 @@ export class Document {
     eventEmitter = new EventEmitter()
 
     /**
-     * Represents a set of elements. DOM lite does not have hierarchy; instead,
-     * all the elements are in the same level.
+     * Represents a set of elements. For simplicity, DOM Lite does not have a
+     * hierarchy; instead, all the elements are in the same level.
      *
      * @type {Set<Element>}
      */
     elements = new Set()
 
     /**
-     * Retrieves an element from the document by a specified ID.
+     * Retrieves an element from the document by the given ID.
      *
      * @param {string} id The ID of the element.
      * @returns {EventSource|any|null} The element associated with the given ID.

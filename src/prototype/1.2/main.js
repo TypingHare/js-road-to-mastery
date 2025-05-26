@@ -1,4 +1,4 @@
-// Callback Function
+// Callback Function [Estimate Time: 60 minutes]
 //
 // In this exercise, you will learn what are callback functions and some
 // advanced ways to use them.

@@ -19,9 +19,6 @@ export const document = new Document()
  */
 export function attachChangeListenerToTextField(textField) {
     /* Task 4: Implement this function */
-    textField.addEventListener('change', (event) => {
-        textField.value = event.value
-    })
 }
 
 /**
@@ -38,47 +35,23 @@ export function attachChangeListenerToTextField(textField) {
  */
 export function attachClickListenerToRadio(radio) {
     /* Task 5: Implement this function */
-    radio.addEventListener('click', () => {
-        if (!radio.checked) {
-            radio.checked = true
-        }
-
-        // Unchecked other radio elements having the same name
-        const name = radio.name
-        for (const element in document.elements) {
-            if (element instanceof Radio && element.name === name) {
-                element.checked = false
-            }
-        }
-    })
 }
 
 /**
  * Adds an event listener to a Button element.
  *
- * When the button is clicked,
+ * When the button is clicked, the handler checks if there is any radio is
+ * checked. If a radio element is checked, get the `value` of it and display it
+ * on the Label element (look for all the label elements in the document, and
+ * set their values properly).
  *
  * NOTE: We didn't have a test for this function in `main.js`. You have to
  * verify its correctness by yourself.
  *
  * @param {Button} button The button element.
+ * @see {Radio}
+ * @see {Label}
  */
 export function attachClickListenerToButton(button) {
     /* Task 6: Implement this function */
-    button.addEventListener('click', () => {
-        let value = ''
-        for (const element in document.elements) {
-            if (element instanceof Radio && element.name === 'fruit') {
-                if (element.checked) {
-                    value = element.value
-                }
-            }
-        }
-
-        for (const element in document.elements) {
-            if (element instanceof Label && element.name === 'selected-fruit') {
-                element.text = value
-            }
-        }
-    })
 }

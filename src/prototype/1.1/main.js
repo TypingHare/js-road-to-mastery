@@ -1,4 +1,4 @@
-// Higher Order Function (HOF)
+// Higher Order Function (HOF) [Estimate Time: 45 minutes]
 //
 // In this exercise, you will learn some common ways where HOFs are used in
 // JavaScript. After the exercise, you should be comfortable with some common
