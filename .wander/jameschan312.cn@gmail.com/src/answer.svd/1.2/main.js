@@ -1,4 +1,4 @@
-// Callback Function
+// Callback Function [Estimate Time: 60 minutes]
 //
 // This exercise contains 6 tasks. Please implement all the functions in
 // `callback.js`.

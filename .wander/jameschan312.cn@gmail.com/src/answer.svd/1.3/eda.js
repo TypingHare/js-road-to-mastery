@@ -23,7 +23,6 @@ export class EventSource {
      *        is triggered.
      */
     addEventListener(eventName, handler) {
-        /* Task 2: Implement this function */
         this.eventBus.subscribe(eventName, handler)
     }
 }
@@ -135,10 +134,11 @@ export class EventBus {
      * @param {Event} event The event to publish.
      */
     publish(event) {
-        /* Task 1: Implement this function */
-        const handlers = this.#eventHandlersMap.get(event.name) || []
-        for (const handler of handlers) {
-            handler(event)
+        const handlers = this.#eventHandlersMap.get(event.name)
+        if (handlers) {
+            for (const handler of handlers) {
+                handler(event)
+            }
         }
     }
 }
@@ -165,7 +165,6 @@ export class EventEmitter {
      * @param {string} value - The value to include in the change event.
      */
     emitChangeEvent(eventSource, value) {
-        /* Task 3: Implement this function */
         eventSource.eventBus.publish(new ChangeEvent(value))
     }
 }

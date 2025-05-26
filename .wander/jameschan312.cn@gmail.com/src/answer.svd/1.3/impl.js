@@ -2,6 +2,12 @@
 
 import { Button, Document, Label, Radio, TextField } from './dom.js'
 
+/**
+ * DOM instance. Think of it as a global variable. You will be using it in some
+ * implementations in the following tasks.
+ *
+ * @type {Document}
+ */
 export const document = new Document()
 
 /**
@@ -12,7 +18,6 @@ export const document = new Document()
  * @param {TextField} textField The text field element.
  */
 export function attachChangeListenerToTextField(textField) {
-    /* Task 3: Implement this function */
     textField.addEventListener('change', (event) => {
         textField.value = event.value
     })
@@ -31,48 +36,46 @@ export function attachChangeListenerToTextField(textField) {
  * @param {Radio} radio The radio element.
  */
 export function attachClickListenerToRadio(radio) {
-    /* Task 4: Implement this function */
     radio.addEventListener('click', () => {
-        if (!radio.checked) {
-            radio.checked = true
-        }
-
-        // Unchecked other radio elements having the same name
-        const name = radio.name
-        for (const element in document.elements) {
-            if (element instanceof Radio && element.name === name) {
+        for (const element of document.elements) {
+            if (element instanceof Radio) {
                 element.checked = false
             }
         }
+
+        radio.checked = true
     })
 }
 
 /**
  * Adds an event listener to a Button element.
  *
- * When the button is clicked,
+ * When the button is clicked, the handler checks if there is any radio is
+ * checked. If a radio element is checked, get the `value` of it and display it
+ * on the Label element (look for all the label elements in the document, and
+ * set their values properly).
  *
  * NOTE: We didn't have a test for this function in `main.js`. You have to
  * verify its correctness by yourself.
  *
  * @param {Button} button The button element.
+ * @see {Radio}
+ * @see {Label}
  */
 export function attachClickListenerToButton(button) {
-    /* Task 5: Implement this function */
     button.addEventListener('click', () => {
-        let value = ''
-        for (const element in document.elements) {
-            if (element instanceof Radio && element.name === 'fruit') {
-                if (element.checked) {
-                    value = element.value
-                }
-            }
-        }
+        const elements = [...document.elements]
 
-        for (const element in document.elements) {
-            if (element instanceof Label && element.name === 'selected-fruit') {
-                element.text = value
-            }
-        }
+        /** @type {Radio} */
+        const checkedRadio = elements.find(
+            (e) => e instanceof Radio && e.checked
+        )
+
+        if (!checkedRadio) return
+
+        const checkedRadioValue = checkedRadio.value
+        elements
+            .filter((it) => it instanceof Label)
+            .forEach((label) => (label.text = checkedRadioValue))
     })
 }
