@@ -1,4 +1,4 @@
-// Event-driven Architecture (EDA) [Estimate Time: 90 minutes]
+// Event-driven Architecture (EDA) [Estimate Time: 120 minutes]
 //
 // In this practice, you will be implementing an event-driven architecture that
 // is similiar to DOM, and we would call it "DOM Lite".
@@ -24,19 +24,14 @@ import _ from 'lodash'
 import { attachChangeListenerToTextField, document } from './impl.js'
 import { Button, TextField } from './dom.js'
 
-// Add elements to the document
-document.elements.add(
-    _.tap(new TextField(), (it) => (it.id = 'input-username'))
-)
-document.elements.add(
-    _.tap(new TextField(), (it) => (it.id = 'input-password'))
-)
-document.elements.add(
-    _.tap(new Button(), (it) => {
-        it.id = 'button-login'
-        it.text = 'LOGIN'
-    })
-)
+;[
+    _.tap(new TextField(), (e) => (e.id = 'input-username')),
+    _.tap(new TextField(), (e) => (e.id = 'input-password')),
+    _.tap(new Button(), (e) => {
+        e.id = 'button-login'
+        e.text = 'LOGIN'
+    }),
+].forEach(document.elements.add)
 
 // Get the element objects by their IDs
 const eInputUsername = document.getElementById('input-username')
